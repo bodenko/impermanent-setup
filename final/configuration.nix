@@ -8,16 +8,30 @@
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  
+
+  networking.hostName = "nixos";
+  networking.networkmanager.enable = true;
+  networking.firewall.enable = true;
+  # Open ports in the firewall.
+  # networking.firewall.allowedTCPPorts = [ ... ];
+  # networking.firewall.allowedUDPPorts = [ ... ];
+
+  time.timeZone = "Europe/London";
+
   services.openssh.enable = true;
 
-  system.stateVersion = "24.05"; # Did you read the comment?
+  system.stateVersion = "24.05";
 
-    users.users."user1" = {
+  users.users."user1" = {
     isNormalUser = true;
     initialPassword = "1";
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
   };
+
+  environment.systemPackages = with pkgs; [
+    vim
+    wget
+  ];
 
   boot.initrd.postDeviceCommands = lib.mkAfter ''
     mkdir /btrfs_tmp
