@@ -31,12 +31,19 @@
               resumeDevice = true;
             };
           };
-          root = {
-            name = "root";
+          luks = {
             size = "100%";
             content = {
-              type = "lvm_pv";
-              vg = "root_vg";
+              type = "luks";
+              name = "crypted";
+              extraOpenArgs = [ ];
+              settings = {
+                allowDiscards = true;
+              };
+              content = {
+                type = "lvm_pv";
+                vg = "pool";
+              };
             };
           };
         };
