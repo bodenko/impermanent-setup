@@ -57,3 +57,8 @@ sudo mkdir -p /etc/
 sudo cp -r /persist/nixos /etc
 reboot
 ```
+
+
+```bash
+sudo nixos-rebuild switch --flake /etc/nixos#default
+```
