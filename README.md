@@ -18,6 +18,8 @@ sudo mv /tmp/disko.nix /mnt/etc/nixos/
 ```bash
 cd /mnt/etc/nixos
 curl https://raw.githubusercontent.com/bodenko/impermanent-setup/main/final/flake.nix -o flake.nix
+```
+```bash
 cp -r /mnt/etc/nixos /mnt/persist
 ```
 ## installing nixos
