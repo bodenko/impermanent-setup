@@ -36,6 +36,9 @@ replace configuration.nix
 ```bash
 sudo curl https://raw.githubusercontent.com/bodenko/impermanent-setup/main/final/configuration.nix -o configuration.nix
 ```
+```bash
+sudo curl https://raw.githubusercontent.com/bodenko/impermanent-setup/main/final/home.nix -o home.nix
+```
 
 ```bash
 sudo rm -r /etc/nixos/*
