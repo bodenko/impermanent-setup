@@ -11,9 +11,9 @@
   
   services.openssh.enable = true;
 
-  system.stateVersion = "23.05"; # Did you read the comment?
+  system.stateVersion = "24.05"; # Did you read the comment?
 
-    users.users."vimjoyer" = {
+    users.users."db" = {
     isNormalUser = true;
     initialPassword = "1";
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
