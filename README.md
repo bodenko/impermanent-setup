@@ -12,6 +12,10 @@ sudo nix --experimental-features "nix-command flakes" run github:nix-community/d
 ```bash
 sudo nixos-generate-config --no-filesystems --root /mnt
 ```
+or
+```bash
+curl https://raw.githubusercontent.com/bodenko/impermanent-setup/main/final/configuration-inital.nix -o configuration.nix
+```
 ```bash
 sudo mv /tmp/disko.nix /mnt/etc/nixos/
 ```
