@@ -13,7 +13,7 @@
 
   system.stateVersion = "24.05"; # Did you read the comment?
 
-    users.users."db" = {
+    users.users."user1" = {
     isNormalUser = true;
     initialPassword = "1";
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
@@ -21,7 +21,7 @@
 
   boot.initrd.postDeviceCommands = lib.mkAfter ''
     mkdir /btrfs_tmp
-    mount /dev/root_vg/root /btrfs_tmp
+    mount /dev/pool/root /btrfs_tmp
     if [[ -e /btrfs_tmp/root ]]; then
         mkdir -p /btrfs_tmp/old_roots
         timestamp=$(date --date="@$(stat -c %Y /btrfs_tmp/root)" "+%Y-%m-%-d_%H:%M:%S")
@@ -66,7 +66,7 @@
   home-manager = {
     extraSpecialArgs = {inherit inputs;};
     users = {
-      "vimjoyer" = import ./home.nix;
+      "user1" = import ./home.nix;
     };
   };
 
