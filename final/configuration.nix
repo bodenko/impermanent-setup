@@ -6,6 +6,12 @@
       ./hardware-configuration.nix
     ];
 
+  system.stateVersion = "24.05";
+  systemd.tmpfiles.rules = [
+    "d /persist/home/ 0777 root root -"
+    "d /persist/home/user1 0700 user1 users -"
+  ]
+
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
@@ -19,8 +25,6 @@
   time.timeZone = "Europe/London";
 
   services.openssh.enable = true;
-
-  system.stateVersion = "24.05";
 
   users.users."user1" = {
     isNormalUser = true;
@@ -83,5 +87,4 @@
       "user1" = import ./home.nix;
     };
   };
-
 }
