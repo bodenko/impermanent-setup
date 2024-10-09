@@ -43,6 +43,8 @@ sudo curl https://raw.githubusercontent.com/bodenko/impermanent-setup/main/final
 ```bash
 sudo rm -r /etc/nixos/*
 sudo nixos-rebuild boot --flake /persist/nixos#default
+sudo mkdir /persist/system
+sudo mkdir /persist/home
 reboot
 ```
 
