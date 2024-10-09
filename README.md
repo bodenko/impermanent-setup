@@ -30,7 +30,7 @@ cp -r /mnt/etc/nixos /mnt/persist
 ```bash
 nixos-install --root /mnt --flake /mnt/etc/nixos#default
 ```
-## enable impermanence
+## enable persistance
 uncomment in flakes.nix
 replace configuration.nix
 ```bash
@@ -40,5 +40,11 @@ sudo curl https://raw.githubusercontent.com/bodenko/impermanent-setup/main/final
 ```bash
 sudo rm -r /etc/nixos/*
 sudo nixos-rebuild boot --flake /persist/nixos#default
+reboot
+```
+
+```bash
+sudo mkdir -p /etc/
+sudo cp -r /persist/nixos /etc
 reboot
 ```
