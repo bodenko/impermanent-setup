@@ -47,6 +47,7 @@ sudo mkdir /persist/system
 sudo mkdir /persist/system/var
 sudo mkdir /persist/system/var/log
 sudo mkdir /persist/system/var/lib
+sudo mkdir /persist/system/var/lib/nixos
 sudo mkdir /persist/home
 reboot
 ```
