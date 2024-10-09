@@ -10,7 +10,7 @@
   systemd.tmpfiles.rules = [
     "d /persist/home/ 0777 root root -"
     "d /persist/home/user1 0700 user1 users -"
-  ]
+  ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
