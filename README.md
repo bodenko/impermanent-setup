@@ -83,3 +83,12 @@ uncomment lanzaboote in flake.nix
 sudo sbctl verify
 ```
 Turn on secure boot in the bios
+
+```bash
+sudo sbctl enroll-keys --microsoft
+```
+
+```bash
+bootctl status
+```
+
