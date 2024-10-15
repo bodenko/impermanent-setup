@@ -26,15 +26,15 @@
 
   services.openssh.enable = true;
 
-  users.users."user1" = {
-    isNormalUser = true;
-    initialPassword = "1";
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-  };
-
   environment.systemPackages = with pkgs; [
     vim
+    kitty
     wget
+    sbctl
+    niv
+    lsof
+    baobab
+    btrfs-progs
   ];
 
   boot.initrd.postDeviceCommands = lib.mkAfter ''
@@ -66,7 +66,11 @@
   environment.persistence."/persist/system" = {
     hideMounts = true;
     directories = [
+      "/home/user1"
       "/etc/nixos"
+      "/etc/secureboot"
+      "/etc/ssh"
+      "/sys/firmware/efi/efivars"
       "/var/log"
       "/var/lib/bluetooth"
       "/var/lib/nixos"
@@ -80,11 +84,10 @@
     ];
   };
 
-  programs.fuse.userAllowOther = true;
-  home-manager = {
-    extraSpecialArgs = {inherit inputs;};
-    users = {
-      "user1" = import ./home.nix;
-    };
+  users.defaultUserShell = pkgs.zsh;
+  users.users."user1" = {
+    isNormalUser = true;
+    initialPassword = "1";
+    extraGroups = [ "wheel" "video" "render" "input" ]; # Enable ‘sudo’ for the user.
   };
 }
