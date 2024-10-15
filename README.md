@@ -58,7 +58,24 @@ sudo cp -r /persist/nixos /etc
 reboot
 ```
 
-
 ```bash
 sudo nixos-rebuild switch --flake /etc/nixos#default
 ```
+
+## enable secureboot
+```bash
+sudo sbctl create-keys
+```
+```bash
+cd /etc/nixos
+niv init 
+```
+
+```bash
+niv add nix-community/lanzaboote -r v0.4.1 -v 0.4.1
+```
+
+```bash
+sudo sbctl create-keys
+```
+
