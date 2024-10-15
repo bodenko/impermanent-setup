@@ -76,6 +76,10 @@ niv add nix-community/lanzaboote -r v0.4.1 -v 0.4.1
 ```
 
 ```bash
-sudo sbctl create-keys
+uncomment lanzaboote in flake.nix
 ```
 
+```bash
+sudo sbctl verify
+```
+Turn on secure boot in the bios
