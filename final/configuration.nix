@@ -63,7 +63,7 @@
   '';
 
   fileSystems."/persist".neededForBoot = true;
-  environment.persistence."/persist/system" = {
+  environment.persistence."/persist" = {
     hideMounts = true;
     directories = [
       "/home/user1"
